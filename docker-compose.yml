@@ -17,7 +17,7 @@ services:
       - ./data/nginx-relay:/usr/conf.d
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; /usr/sbin/nginx -s reload; done & /usr/sbin/nginx -c /usr/conf.d/${NGINX_RELAY_CONFIG:-nginx.conf} -g \"daemon off;\"'"
   certbot:
-    image: certbot/certbot@sha256:78a7eaa40af657301e25731297b6e73646c695370d17e9bb03189fa82966d65c
+    image: certbot/certbot@sha256:0107d084c225631fc64a8313e19adb07275f7296fde338f7dfa93986c80b2e3e
     restart: unless-stopped
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
